@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="StarB" HorizontalAlignment="Left" Height="23" Margin="523,25,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="StopB" HorizontalAlignment="Left" Height="23" Margin="523,64,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="533,102,0,0" VerticalAlignment="Top" Width="75" Click="IStart"/>
+        <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Left" Margin="533,142,0,0" VerticalAlignment="Top" Width="75" Click="IStop"/>
+        <ListBox x:Name="ListB" HorizontalAlignment="Left" Height="383" Margin="10,10,0,0" VerticalAlignment="Top" Width="496"/>
+
     </Grid>
 </Window>
