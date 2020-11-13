@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AngleSharp.Html.Dom;
+using HtmlParse.Core.Data;
 using HtmlParse.Core.Systems.Parse;
 
 namespace HtmlParse.Core.Habra
@@ -11,15 +8,16 @@ namespace HtmlParse.Core.Habra
     class HabraParser : IParser<string[]>
     {
         public event Action<object, string[]> OnNewLinks;
+        public event Action<object, E_SimpleData[]> OnNewNews;
 
         public void ParseMain(IHtmlDocument document)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void ParseNews(IHtmlDocument document)
         {
-            throw new NotImplementedException();
+            return;
         }
     }
 }

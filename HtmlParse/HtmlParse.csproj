@@ -73,14 +73,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\Core.cs" />
-    <Compile Include="Core\Habra\HabraParser.cs" />
-    <Compile Include="Core\Habra\HabraSettings.cs" />
+    <Compile Include="Core\Systems\Parse\Habra\HabraParser.cs" />
+    <Compile Include="Core\Systems\Parse\Habra\HabraSettings.cs" />
     <Compile Include="Core\Systems\CDMS.cs" />
     <Compile Include="Core\Systems\Data\BaseTypes.cs" />
     <Compile Include="Core\Systems\htmlLoader.cs" />
     <Compile Include="Core\Systems\Parse\IParser.cs" />
     <Compile Include="Core\Systems\Parse\IParserSettings.cs" />
     <Compile Include="Core\Systems\ParserWorker.cs" />
+    <Compile Include="Core\Systems\Parse\Riac34\Riac34.cs" />
+    <Compile Include="Core\Systems\Parse\Riac34\Riac34Settings.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

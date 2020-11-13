@@ -20,7 +20,7 @@ namespace HtmlParse
     
     public partial class MainWindow : Window
     {
-        ParserWorker<string[]> parser;
+        Core<string[]> core;
 
         public MainWindow()
         {
@@ -28,12 +28,12 @@ namespace HtmlParse
 
         private void Parser_OnNewData(object arg1, string[] arg2)
         {
+            foreach (string str in arg2)
+                OUT.AppendText(str);
         }
 
         private void Parser_OnCompleted(object obj)
-        {
-            MessageBox.Show("Completed");
-        }
+        {/*MessageBox.Show("Completed");*/}
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -43,7 +43,10 @@ namespace HtmlParse
 
         private void IStart(object sender, RoutedEventArgs e)
         {
-
+            OUT.Clear();
+            core = new Core<string[]>(0);
+            core.Parser.OnCompleted += Parser_OnNewData;
+            core.StartParse();
         }
 
         private void IStop(object sender, RoutedEventArgs e)
