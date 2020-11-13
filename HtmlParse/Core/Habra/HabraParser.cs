@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AngleSharp.Html.Dom;
+using HtmlParse.Core.Systems.Parse;
 
 namespace HtmlParse.Core.Habra
 {
     class HabraParser : IParser<string[]>
     {
-        public string[] Parse(IHtmlDocument document)
+        public event Action<object, string[]> OnNewLinks;
+
+        public void ParseMain(IHtmlDocument document)
         {
-            var list = new List<string>();
-            var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("post__title_link"));
+            throw new NotImplementedException();
+        }
 
-            foreach(var item in items)
-            {
-                list.Add(item.TextContent);
-            }
-
-            return list.ToArray();
+        public void ParseNews(IHtmlDocument document)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AngleSharp.Html.Dom;
 using AngleSharp.Html.Parser;
+using HtmlParse.Core.Systems.Parse;
 using System;
 
 namespace HtmlParse.Core
@@ -80,25 +81,7 @@ namespace HtmlParse.Core
 
         private async void Worker()
         {
-            for (int i = parserSettings.StartPoint; i <= parserSettings.EndPoint; i++)
-            {
-                if (!isActive)
-                {
-                    OnCompleted?.Invoke(this);
-                    return;
-                }
 
-                var source = await loader.GetSourceByPageId(i);
-                HtmlParser domParser = new HtmlParser();
-
-                IHtmlDocument document = await domParser.ParseDocumentAsync(source);
-
-                var result = parser.Parse(document);
-
-                OnNewData?.Invoke(this, result);
-            }
-            OnCompleted?.Invoke(this);
-            isActive = false;
         }
 
     }

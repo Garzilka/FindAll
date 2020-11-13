@@ -24,18 +24,10 @@ namespace HtmlParse
 
         public MainWindow()
         {
-            InitializeComponent();
-            parser = new ParserWorker<string[]>(
-                new HabraParser()
-                );
-            parser.OnCompleted += Parser_OnCompleted;
-            parser.OnNewData += Parser_OnNewData;
         }
 
         private void Parser_OnNewData(object arg1, string[] arg2)
         {
-            ListB.Items.Add(arg2);
-            //StarB.AppendText(arg2[0]);
         }
 
         private void Parser_OnCompleted(object obj)
@@ -51,17 +43,11 @@ namespace HtmlParse
 
         private void IStart(object sender, RoutedEventArgs e)
         {
-            float start;
-            float.TryParse(StarB.Text, out start);
-            float stop;
-            float.TryParse(StopB.Text, out stop); 
-            parser.Settings = new HabraSettings((int)start, (int)stop);
-            parser.Start();
+
         }
 
         private void IStop(object sender, RoutedEventArgs e)
         {
-            parser.Abort();
         }
     }
 }
