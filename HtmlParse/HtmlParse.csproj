@@ -125,7 +125,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\Core.cs" />
+    <Compile Include="Core\Systems\Data\ConventorData.cs" />
+    <Compile Include="Core\Systems\Data\IData.cs" />
+    <Compile Include="Core\Systems\Data\IDataSettings.cs" />
     <Compile Include="Core\Systems\Data\MongoDB\MongoDB.cs" />
+    <Compile Include="Core\Systems\Data\MongoDB\MongoSettings.cs" />
     <Compile Include="Core\Systems\Parse\Habra\HabraParser.cs" />
     <Compile Include="Core\Systems\Parse\Habra\HabraSettings.cs" />
     <Compile Include="Core\Systems\CDMS.cs" />

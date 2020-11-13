@@ -11,7 +11,8 @@ namespace HtmlParse.Core.Systems
     {
         IParserSettings parserSettings;
         IParser<T> Parser;
-
+        
+        
         htmlLoader loader;
         bool isActive;
         #region Properties
@@ -27,8 +28,8 @@ namespace HtmlParse.Core.Systems
         }
 
         #endregion
-        public event Action<object, string> OnNewLinks;
-        public event Action<object, string[]> OnCompleted;
+        
+        public event Action<object, S_SimpleData[]> OnNewNews;
 
         public ParserWorker(IParser<T> parser)
         {
@@ -59,20 +60,13 @@ namespace HtmlParse.Core.Systems
                 Parser.ParseNews(Document, Href);
                 Result.Add(Href + "\n");
             }
-            OnCompleted?.Invoke(this, Result.ToArray());
             
         }
         protected void Parser_OnNewNews(object arg1, S_SimpleData[] News)
         {
             //Prototype
-            List<string> Result = new List<string> { };
-            foreach (S_SimpleData Data in News)
-            {
-                Result.Add(Data.ParameterName + ":\n");
-                Result.Add(Data.Value + "\n");
-            }
-            Result.Add("__________________________\n");
-            OnCompleted?.Invoke(this, Result.ToArray());
+
+            OnNewNews?.Invoke(this, News); 
         }
 
 

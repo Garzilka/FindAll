@@ -45,7 +45,7 @@ namespace HtmlParse
         {
             OUT.Clear();
             core = new Core<string[]>(0);
-            core.Parser.OnCompleted += Parser_OnNewData;
+            core.OnCompleted += Parser_OnNewData;
             core.StartParse();
         }
 

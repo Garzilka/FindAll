@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AngleSharp.Html.Dom;
 using HtmlParse.Core.Data;
 using HtmlParse.Core.Systems.Parse;
@@ -14,6 +15,8 @@ namespace HtmlParse.Core.Habra
 
         public void ParseMain(IHtmlDocument document)
         {
+            List<string> Result = new List<string> { };
+            OnNewLinks?.Invoke(this, Result.ToArray());
             throw new NotImplementedException();
         }
 

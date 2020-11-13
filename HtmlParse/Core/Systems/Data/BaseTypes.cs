@@ -14,6 +14,7 @@ namespace HtmlParse.Core.Data
     struct S_SimpleData
     {
         public string ParameterName { get; set; }
-        public string Value { get; set; }
+        public string Value { get;set;}
     }
 }
+

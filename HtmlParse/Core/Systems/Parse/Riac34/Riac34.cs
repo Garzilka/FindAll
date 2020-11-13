@@ -51,8 +51,12 @@ namespace HtmlParse.Core.Systems.Parse.Riac34
         {
 
             S_SimpleData[] Result = new S_SimpleData[Settings.ParsInfo.Length];
-
-            for (int i = 0; i < Settings.ParsInfo.Length; i++)
+            for (int i = 0; i < Result.Length; i++)
+            {
+                Result[i].Value = "";
+                Result[i].ParameterName = "";
+            }
+                for (int i = 0; i < Settings.ParsInfo.Length; i++)
             {
                 if (Settings.ParsInfo[i].Value != "")
                 {
@@ -61,7 +65,10 @@ namespace HtmlParse.Core.Systems.Parse.Riac34
                     {
                         Result[i].Value += item.TextContent + "\n";
                     }
+                    if(Result[i].Value == null)
+                        Result[i].Value = "";
                 }
+                
                 Result[i].ParameterName = Settings.ParsInfo[i].ParameterName;
             }
             Result[2].Value = Href;
