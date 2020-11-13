@@ -11,7 +11,7 @@ namespace HtmlParse.Core.Data
         SQL,
         NoSQL
     }
-    struct E_SimpleData
+    struct S_SimpleData
     {
         public string ParameterName { get; set; }
         public string Value { get; set; }

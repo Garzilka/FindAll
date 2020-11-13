@@ -1,5 +1,7 @@
 ﻿
 
+using HtmlParse.Core.Data;
+
 namespace HtmlParse.Core.Habra
 {
     class HabraSettings : IParserSettings
@@ -14,5 +16,6 @@ namespace HtmlParse.Core.Habra
         public string Prefix { get; set; } = "page{CurrentId}";
         public int StartPoint { get; set; }
         public int EndPoint { get; set; }
+        public S_SimpleData[] ParsInfo { get; set; }
     }
 }

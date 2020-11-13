@@ -7,17 +7,19 @@ namespace HtmlParse.Core.Habra
 {
     class HabraParser : IParser<string[]>
     {
+        public IParserSettings Settings { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public event Action<object, string[]> OnNewLinks;
-        public event Action<object, E_SimpleData[]> OnNewNews;
+        public event Action<object, S_SimpleData[]> OnNewNews;
 
         public void ParseMain(IHtmlDocument document)
         {
-            return;
+            throw new NotImplementedException();
         }
 
-        public void ParseNews(IHtmlDocument document)
+        public void ParseNews(IHtmlDocument document, string Href)
         {
-            return;
+            throw new NotImplementedException();
         }
     }
 }

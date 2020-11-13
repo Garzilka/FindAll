@@ -47,25 +47,32 @@ namespace HtmlParse.Core.Systems
         {
             isActive = false;
         }
-        protected void Parser_OnNewLinks(object arg1, string[] Links)
+        protected async void Parser_OnNewLinks(object arg1, string[] Links)
         {
             //Prototype
             List<string> Result = new List<string> { };
-            foreach (string str in Links)
-                Result.Add(str + "\n");
+            foreach (string Href in Links)
+            {
+                var Source = await loader.GetSourceByHref(Href);
+                var DomParser = new HtmlParser();
+                var Document = await DomParser.ParseDocumentAsync(Source);
+                Parser.ParseNews(Document, Href);
+                Result.Add(Href + "\n");
+            }
             OnCompleted?.Invoke(this, Result.ToArray());
+            
         }
-        protected void Parser_OnNewNews(object arg1, E_SimpleData[] News)
+        protected void Parser_OnNewNews(object arg1, S_SimpleData[] News)
         {
             //Prototype
-            string[] Result = new string[News.Length + 1];
-
-            for (int i = 0; i < News.Length; i++)
+            List<string> Result = new List<string> { };
+            foreach (S_SimpleData Data in News)
             {
-                Result[i] = News[i].Value + "\n";
+                Result.Add(Data.ParameterName + ":\n");
+                Result.Add(Data.Value + "\n");
             }
-            Result[Result.Length] = "__________________________\n";
-            OnCompleted?.Invoke(this, Result);
+            Result.Add("__________________________\n");
+            OnCompleted?.Invoke(this, Result.ToArray());
         }
 
 

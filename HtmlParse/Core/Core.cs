@@ -17,7 +17,8 @@ namespace HtmlParse.Core
             {
                 case 0:
                     {
-                        Parser = new ParserWorker<string[]>(new Riac34(), new Riac34Settings(0, 0));
+                        IParserSettings Settings = new Riac34Settings(0, 0);
+                        Parser = new ParserWorker<string[]>(new Riac34(Settings), Settings);
                         break;
                     }
                 default:

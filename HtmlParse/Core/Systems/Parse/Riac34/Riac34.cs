@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using AngleSharp.Html.Dom;
 using HtmlParse.Core.Data;
 using System.Text.RegularExpressions;
-
+using System.Linq;
 
 namespace HtmlParse.Core.Systems.Parse.Riac34
 {
     class Riac34 : IParser<string[]>
     {
         public event Action<object, string[]> OnNewLinks;
-        public event Action<object, E_SimpleData[]> OnNewNews;
+        public event Action<object, S_SimpleData[]> OnNewNews;
 
+        public IParserSettings Settings { get; set; }
+        public Riac34(IParserSettings settings) { Settings = settings; }
         public void ParseMain(IHtmlDocument document)
         {
             Console.WriteLine("Main");
@@ -26,8 +28,8 @@ namespace HtmlParse.Core.Systems.Parse.Riac34
                         string a = menuLink.Href.ToString();
                         Regex regex = new Regex("\\d+");
                         Match match = regex.Match(a);
-                        Console.WriteLine("https://riac34.ru/news/" + match.Value + "/");
-                        Result.Add("https://riac34.ru/news/" + match.Value + "/");
+                        if(match.Value != "")
+                            Result.Add("https://riac34.ru/news/" + match.Value + "/");
 
                     }
                 }
@@ -37,10 +39,34 @@ namespace HtmlParse.Core.Systems.Parse.Riac34
             Console.WriteLine("ParseComplete");
             OnNewLinks?.Invoke(this, Result.ToArray());
         }
-
-        public void ParseNews(IHtmlDocument document)
+        public string ListToString(List<string> list)
         {
-            throw new NotImplementedException();
+            string Return = "";
+            foreach (string str in list)
+                Return += str;
+            return Return;
+
+        }
+        public void ParseNews(IHtmlDocument document, string Href)
+        {
+
+            S_SimpleData[] Result = new S_SimpleData[Settings.ParsInfo.Length];
+
+            for (int i = 0; i < Settings.ParsInfo.Length; i++)
+            {
+                if (Settings.ParsInfo[i].Value != "")
+                {
+                    var items = document.QuerySelectorAll(Settings.ParsInfo[i].Value).Where(item => item.ClassName != null);
+                    foreach (var item in items)
+                    {
+                        Result[i].Value += item.TextContent + "\n";
+                    }
+                }
+                Result[i].ParameterName = Settings.ParsInfo[i].ParameterName;
+            }
+            Result[2].Value = Href;
+
+            OnNewNews?.Invoke(this, Result);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HtmlParse.Core.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace HtmlParse.Core
         int StartPoint { get; set; }
 
         int EndPoint { get; set; }
+
+        S_SimpleData[] ParsInfo { get; set; }
 
     }
 }
