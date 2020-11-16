@@ -8,7 +8,7 @@ namespace HtmlParse.Core.Data
 {
     interface IData
     {
-        Task Insert(BsonDocument doc);
-        Task Insert(S_SimpleData[] Data);
+        Task Insert(BsonDocument doc, S_SimpleData forFind);
+        Task Insert(S_SimpleData[] Data, S_SimpleData forFind);
     }
 }

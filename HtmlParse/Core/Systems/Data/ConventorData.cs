@@ -10,7 +10,7 @@ namespace HtmlParse.Core.Systems.Data
 {
     class ConventorData
     {
-        public event Action<BsonDocument> ToBson;
+        public event Action<BsonDocument, S_SimpleData> ToBson;
         public event Action<string[]> JsonToSQL;
         public async Task ConvertorAsync(E_DataType type, S_SimpleData[] data)
         {
@@ -39,7 +39,7 @@ namespace HtmlParse.Core.Systems.Data
                 Doc.AddRange(doc);
             }
             
-            ToBson?.Invoke(Doc);
+            ToBson?.Invoke(Doc, Value[2]);
         }
     }
 }

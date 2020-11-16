@@ -16,7 +16,6 @@ namespace HtmlParse.Core.Systems.Parse.Riac34
         public Riac34(IParserSettings settings) { Settings = settings; }
         public void ParseMain(IHtmlDocument document)
         {
-            Console.WriteLine("Main");
             var items = document.QuerySelectorAll("div.col-lg-8");//span.styled__DigestItemTitleText-sc-5215n1-15 cFlSRO
             List<string> Result = new List<string> { };
             foreach (IHtmlAnchorElement menuLink in document.Links)

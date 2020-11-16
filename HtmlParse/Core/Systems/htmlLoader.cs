@@ -1,8 +1,7 @@
 ﻿using System.Net.Http;
 using System.Net;
 using System.Threading.Tasks;
-
-
+using System;
 
 namespace HtmlParse.Core
 {
@@ -36,17 +35,15 @@ namespace HtmlParse.Core
             var response = await Client.GetAsync(currentUrl);
 
             string source = null;
-            if (response != null && response.StatusCode == HttpStatusCode.OK)
+            if (response != null/*&& response.StatusCode == HttpStatusCode.OK*/)
             {
                 source = await response.Content.ReadAsStringAsync();
             }
-
             return source;
         }
         public async Task<string> GetSourceByHref(string href)
         {
             var response = await Client.GetAsync(href);
-
             string source = null;
             if (response != null && response.StatusCode == HttpStatusCode.OK)
             {

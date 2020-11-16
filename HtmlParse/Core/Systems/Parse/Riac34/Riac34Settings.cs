@@ -25,12 +25,12 @@ namespace HtmlParse.Core.Systems.Parse.Riac34
             ParsInfo[4].ParameterName = "VideoRef";
             ParsInfo[4].Value = "";
             ParsInfo[5].ParameterName = "countViews";
-            ParsInfo[5].Value = "";
+            ParsInfo[5].Value = "span.views";
             ParsInfo[6].ParameterName = "countComments";
-            ParsInfo[6].Value = "";
+            ParsInfo[6].Value = "span.comments";
         }
-        public string BaseURL { get; set; } = "https://riac34.ru/news/";
-        public string Prefix { get; set; } = "109990/js/share.js?PAGEN_1={CurrentId}";
+        public string BaseURL { get; set; } = "https://riac34.ru/news";
+        public string Prefix { get; set; } = "124149/js/share.js?PAGEN_1={CurrentId}"; //section/{CurrentId}
         public int StartPoint { get; set; }
         public int EndPoint { get; set; }
         public S_SimpleData[] ParsInfo { get; set; }

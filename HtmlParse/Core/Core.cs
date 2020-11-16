@@ -21,10 +21,7 @@ namespace HtmlParse.Core
             {
                 case 0:
                     {
-                        IParserSettings Settings = new Riac34Settings(0, 0);
-                        Parser = new ParserWorker<string[]>(new Riac34(Settings), Settings);
-                        DMS = new CDMS(Conventor);
-                        Parser.OnNewNews += News;
+                        
                         break;
                     }
                 default:
@@ -50,9 +47,14 @@ namespace HtmlParse.Core
             OnCompleted?.Invoke(this, Result.ToArray());
         }
 
-        public void StartParse()
+        public void StartParse(int start, int stop)
         {
+            IParserSettings Settings = new Riac34Settings(start, stop);
+            Parser = new ParserWorker<string[]>(new Riac34(Settings), Settings);
+            DMS = new CDMS(Conventor);
+            Parser.OnNewNews += News;
             Parser.Start();
+
         }
 
 

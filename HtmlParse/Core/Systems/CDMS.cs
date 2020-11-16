@@ -21,9 +21,9 @@ namespace HtmlParse.Core.Systems
 
             Conventor.ToBson += Ins;
         }
-        async void Ins(BsonDocument doc)
+        async void Ins(BsonDocument doc, S_SimpleData forFind)
         {
-            await DataBase.Insert(doc);
+            await DataBase.Insert(doc, forFind);
         }
     }
 }

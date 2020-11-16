@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Start" Content="Start" HorizontalAlignment="Right" Margin="0,22,0,0" VerticalAlignment="Top" Width="75" Click="IStart" RenderTransformOrigin="0.467,-3.0"/>
+        <Button x:Name="Start" Content="Start" HorizontalAlignment="Right" Margin="0,20,0,0" VerticalAlignment="Top" Width="75" Click="IStart" RenderTransformOrigin="0.467,-3.0"/>
         <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Right" Margin="0,60,0,0" VerticalAlignment="Top" Width="75" Click="IStop"/>
-        <TextBox x:Name="OUT" HorizontalAlignment="Stretch"  Margin="10,11,125,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Stretch"  TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="StartPoint" HorizontalAlignment="Right" Width="75" Margin="0,90,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" KeyDown="ES_Correct"/>
+        <TextBox x:Name="EndPoint" HorizontalAlignment="Right" Width="75" Margin="0,120,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" KeyDown="EP_Correct"/>
+        <TextBox x:Name="OUT" HorizontalAlignment="Stretch"  Margin="10,11,125,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Stretch"/>
 
     </Grid>
 </Window>
