@@ -33,7 +33,7 @@ namespace HtmlParse.Core
         {
             var currentUrl = url.Replace("{CurrentId}", id.ToString());
             var response = await Client.GetAsync(currentUrl);
-
+            Console.WriteLine(currentUrl);
             string source = null;
             if (response != null/*&& response.StatusCode == HttpStatusCode.OK*/)
             {

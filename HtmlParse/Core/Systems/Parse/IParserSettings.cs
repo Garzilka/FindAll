@@ -17,6 +17,8 @@ namespace HtmlParse.Core
 
         int EndPoint { get; set; }
 
+        string Table { get; set; } // or document
+
         S_SimpleData[] ParsInfo { get; set; }
 
     }

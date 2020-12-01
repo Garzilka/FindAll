@@ -55,7 +55,7 @@ namespace HtmlParse.Core.Systems.Parse.Riac34
                 Result[i].Value = "";
                 Result[i].ParameterName = "";
             }
-                for (int i = 0; i < Settings.ParsInfo.Length; i++)
+            for (int i = 0; i < Settings.ParsInfo.Length; i++)
             {
                 if (Settings.ParsInfo[i].Value != "")
                 {

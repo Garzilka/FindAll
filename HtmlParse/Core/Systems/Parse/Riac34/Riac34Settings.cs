@@ -34,5 +34,6 @@ namespace HtmlParse.Core.Systems.Parse.Riac34
         public int StartPoint { get; set; }
         public int EndPoint { get; set; }
         public S_SimpleData[] ParsInfo { get; set; }
+        public string Table { get; set; }
     }
 }

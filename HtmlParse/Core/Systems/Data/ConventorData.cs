@@ -38,7 +38,6 @@ namespace HtmlParse.Core.Systems.Data
                 };
                 Doc.AddRange(doc);
             }
-            
             ToBson?.Invoke(Doc, Value[2]);
         }
     }

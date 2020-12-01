@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace HtmlParse.Core
 {
-    class Core<T> where T : class
+    class CCore
     {
         CDMS DMS;
         public ParserWorker<string[]> Parser;
@@ -15,7 +15,7 @@ namespace HtmlParse.Core
         public event Action<object, string[]> OnCompleted;
         ConventorData Conventor = new ConventorData();
 
-        public Core(int typeParser)
+        public CCore(int typeParser)
         {
             switch (typeParser)
             {

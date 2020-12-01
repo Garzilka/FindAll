@@ -5,13 +5,128 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HtmlParse"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="Start" Content="Start" HorizontalAlignment="Right" Margin="0,20,0,0" VerticalAlignment="Top" Width="75" Click="IStart" RenderTransformOrigin="0.467,-3.0"/>
-        <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Right" Margin="0,60,0,0" VerticalAlignment="Top" Width="75" Click="IStop"/>
-        <TextBox x:Name="StartPoint" HorizontalAlignment="Right" Width="75" Margin="0,90,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" KeyDown="ES_Correct"/>
-        <TextBox x:Name="EndPoint" HorizontalAlignment="Right" Width="75" Margin="0,120,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" KeyDown="EP_Correct"/>
-        <TextBox x:Name="OUT" HorizontalAlignment="Stretch"  Margin="10,11,125,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Stretch"/>
+        Title="FindAll" Height="450" Width="800">
+    <Grid Background="LightGray">
+
+
+        <TabControl x:Name="tabControl" HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="auto" Background="LightGray">
+            <TabItem Header="Parser">
+                <Grid Background="#FFE5E5E5" HorizontalAlignment="Stretch" Height="auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="auto">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Background="LightGray" Grid.Column="1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Background="LightGray" Grid.Column="1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="Start" Content="Start" HorizontalAlignment="Right" VerticalAlignment="Center" Width="75" Click="IStart" Grid.Column="0" />
+                            <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Right" VerticalAlignment="Center" Width="75" Click="IStop" Grid.Column="1"/>
+                        </Grid>
+                        <TextBlock x:Name="label" TextWrapping="WrapWithOverflow"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1">
+                            Страница начала и конца <LineBreak/> (Внимание если поля = 0, парсятся первые 5 страниц)
+                        </TextBlock>
+                        <Grid Background="LightGray" Grid.Column="1" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Background="LightGray" x:Name="StartPoint" HorizontalAlignment="Right" Width="75" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" KeyDown="ES_Correct" Grid.Column="0"/>
+                            <TextBox Background="LightGray" x:Name="EndPoint" HorizontalAlignment="Right" Width="75"  TextWrapping="Wrap" Text="0" VerticalAlignment="Center" KeyDown="EP_Correct" Grid.Column="1"/>
+                        </Grid>
+                        <Grid Background="#FFE5E5E5" Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ComboBox x:Name="textBlock3" HorizontalAlignment="Stretch" Height="auto" Width="Auto" Grid.Column="0"  Text="" VerticalAlignment="Stretch" />
+                            <Button x:Name="button3" Content="+" HorizontalAlignment="Stretch" Grid.Column="1" Height="auto" Width="auto" VerticalAlignment="Stretch" FontWeight="Bold" FontSize="15"/>
+                        </Grid>
+                        <ListBox Grid.Row="4" Background="LightGray">
+                            <ListBoxItem Background="LightGray">Riac</ListBoxItem>
+                            <ListBoxItem Background="LightGray">Habr</ListBoxItem>
+                        </ListBox>
+
+                    </Grid>
+
+                    <TextBox Background="LightGray" x:Name="OUT" HorizontalAlignment="Stretch"  Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" Grid.Column="0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Search">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Background="#FFE5E5E5" Grid.Column="1">
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="0.15*"></RowDefinition>
+                            <RowDefinition Height="0.15*"></RowDefinition>
+                            <RowDefinition Height="0.35*"></RowDefinition>
+                            <RowDefinition Height="0.35*"></RowDefinition>
+                            <RowDefinition Height="0.0*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Background="#FFE5E5E5" Grid.Row="0">
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label x:Name="label2" Content="Тип поиска" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="auto" Height="Auto" Grid.Row="0"/>
+                            <ComboBox Grid.Row="1">
+                                <ComboBoxItem>Статьи</ComboBoxItem>
+                                <ComboBoxItem>Упоминания</ComboBoxItem>
+                                <ComboBoxItem Background="Silver">Товары</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                        <Grid Background="#FFE5E5E5" Grid.Row="1">
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label x:Name="label3" Content="Где ищем?" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="auto" Height="Auto" Grid.Row="0"/>
+                            <ComboBox Grid.Row="1">
+                                <ComboBoxItem>БД</ComboBoxItem>
+                                <ComboBoxItem>С сайтов</ComboBoxItem>
+                                <ComboBoxItem>Везде</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+                        <Grid Background="#FFE5E5E5" Grid.Row="2">
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="0.22*"></RowDefinition>
+                                <RowDefinition Height="0.22*"></RowDefinition>
+                                <RowDefinition Height="0.56*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label x:Name="label1" Content="Что ищем?" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="auto" Height="Auto" Grid.Row="0"/>
+                            <Grid Background="#FFE5E5E5" Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                                    <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="textBlock" HorizontalAlignment="Stretch" Height="auto" Width="Auto" Grid.Column="0" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" />
+                                <Button x:Name="button" Content="+" HorizontalAlignment="Stretch" Grid.Column="1" Height="auto" Width="auto" VerticalAlignment="Stretch" FontWeight="Bold" FontSize="15"/>
+                            </Grid>
+                            <ListBox Grid.Row="2">
+                            </ListBox>
+
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>

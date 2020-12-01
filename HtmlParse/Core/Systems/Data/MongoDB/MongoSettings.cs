@@ -10,8 +10,8 @@ namespace HtmlParse.Core.Systems.Data.MongoDB
     class MongoSettings : IDataSettings
     {
         public string Connection { get; set; } = "mongodb://localhost";
-        public string DBName { get; set; } = "News";
-        public string Table { get; set; } = "Riac34";
+        public string DBName { get; set; } = "News"; 
+        public string Table { get; set; } = "Riac34"; 
         public E_DataType DataType { get; set; }
     }
 }

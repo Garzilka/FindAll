@@ -21,7 +21,7 @@ namespace HtmlParse
     
     public partial class MainWindow : Window
     {
-        Core<string[]> core;
+        CCore core;
         public MainWindow()
         {
         }
@@ -45,7 +45,7 @@ namespace HtmlParse
             Int32.TryParse(StartPoint.Text, out start);
             int stop;
             Int32.TryParse(EndPoint.Text, out stop);
-            core = new Core<string[]>(0);
+            core = new CCore(0);
             core.OnCompleted += Parser_OnNewData;
             core.StartParse(start, stop);
         }
