@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HtmlParse.Core.UI.Parser
+namespace HtmlParse
 {
     /// <summary>
-    /// Логика взаимодействия для Product.xaml
+    /// Логика взаимодействия для Searcher.xaml
     /// </summary>
-    public partial class Product : UserControl
+    public partial class Searcher : UserControl
     {
-        public Product()
+        public Searcher()
         {
             InitializeComponent();
         }

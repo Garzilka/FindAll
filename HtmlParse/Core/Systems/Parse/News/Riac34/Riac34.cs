@@ -5,7 +5,7 @@ using HtmlParse.Core.Data;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-namespace HtmlParse.Core.Systems.Parse.Riac34
+namespace HtmlParse.Core.Systems.Parse.News.Riac34
 {
     class Riac34 : IParser<string[]>
     {

@@ -117,18 +117,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Core\UI\Parser\News.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Core\UI\Parser\Product.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Core\UI\Search\News.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Core\Systems\Parse\News\VolgogradKP\VolgogradKP.cs" />
+    <Compile Include="Core\Systems\Parse\News\VolgogradKP\VolgogradKPSettings.cs" />
+    <Compile Include="Parser.xaml.cs">
+      <DependentUpon>Parser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Searcher.xaml.cs">
+      <DependentUpon>Searcher.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -153,19 +149,18 @@
     <Compile Include="Core\Systems\ParserWorker.cs" />
     <Compile Include="Core\Systems\Parse\News\Riac34\Riac34.cs" />
     <Compile Include="Core\Systems\Parse\News\Riac34\Riac34Settings.cs" />
-    <Compile Include="Core\UI\Parser\News.xaml.cs">
-      <DependentUpon>News.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Core\UI\Parser\Product.xaml.cs">
-      <DependentUpon>Product.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Core\UI\Search\News.xaml.cs">
-      <DependentUpon>News.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Parser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Searcher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

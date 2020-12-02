@@ -1,21 +1,16 @@
 ﻿using HtmlParse.Core.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HtmlParse.Core.Systems.Parse.News.Riac34
+namespace HtmlParse.Core.Systems.Parse.News.VolgogradKP
 {
-    class Riac34Settings : IParserSettings
+    class VolgogradKPSettings : IParserSettings
     {
-        public Riac34Settings(int start, int end)
+        public VolgogradKPSettings(int start, int end)
         {
             StartPoint = start;
             EndPoint = end;
             ParsInfo = new S_SimpleData[7];
             ParsInfo[0].ParameterName = "NameNews";
-            ParsInfo[0].Value = "div.inner-new-content h1";
+            ParsInfo[0].Value = "time.mdIfz";
             ParsInfo[1].ParameterName = "Date";
             ParsInfo[1].Value = "div.news-attr span.date";
             ParsInfo[2].ParameterName = "RefNews";
@@ -29,7 +24,7 @@ namespace HtmlParse.Core.Systems.Parse.News.Riac34
             ParsInfo[6].ParameterName = "countComments";
             ParsInfo[6].Value = "span.comments";
         }
-        public string BaseURL { get; set; } = "https://riac34.ru/news";
+        public string BaseURL { get; set; } = "https://www.volgograd.kp.ru/online/news/";
         public string Prefix { get; set; } = "124149/js/share.js?PAGEN_1={CurrentId}"; //section/{CurrentId}
         public int StartPoint { get; set; }
         public int EndPoint { get; set; }
